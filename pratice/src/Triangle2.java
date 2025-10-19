@@ -14,13 +14,13 @@ public class Triangle2 {
         this.p3 = p3;
 
     }
-    public static double perimeter(Point2D p1, Point2D p2, Point2D p3){
+    public double perimeter(){
         double a = Point2D.distance(p1,p2);
         double b = Point2D.distance(p1,p3);
         double c = Point2D.distance(p2,p3);
         return a + b +c ;
     }
-    public static double area(Point2D p1, Point2D p2, Point2D p3){
+    public double area(){
         return 0.5*Math.abs(p1.x*(p2.y- p3.y)+p2.x*(p3.y- p1.y)+p3.x*(p1.y- p2.y));
     }
 }
@@ -46,8 +46,10 @@ class CheckTriangle{
         Point2D p2 = new Point2D(c,d);
         Point2D p3 = new Point2D(e,f);
 
-        System.out.printf("Perimeter of triangle based on given points : %.2f\n ",Triangle2.perimeter(p1,p2,p3));
-        System.out.printf("Area of triangle based on given points : %.2f\n ",Triangle2.area(p1,p2,p3));
+        Triangle2 triangle = new Triangle2(p1, p2,p3);
+
+        System.out.printf("Perimeter of triangle based on given points : %.2f\n ",triangle.perimeter());
+        System.out.printf("Area of triangle based on given points : %.2f\n ",triangle.area());
 
     }
 }
