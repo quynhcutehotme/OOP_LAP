@@ -50,7 +50,7 @@ public class Point2D {
 class TestingPoint2D {
     public static void main(String[] args) {
 
-        //Test my Point2D class
+       
         Point2D p1 = new Point2D();
         System.out.printf("The initial value of p1: %s\n", p1);
         System.out.printf("Is p1 at the origin? => %s\n", p1.isOrigin());
@@ -68,3 +68,4 @@ class TestingPoint2D {
         System.out.printf("Second way to calculate distance between p2 and p3: %.2f\n", Point2D.distance(p2, p3));
     }
 }
+
