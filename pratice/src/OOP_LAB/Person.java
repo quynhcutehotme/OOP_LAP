@@ -105,15 +105,22 @@ class Staff extends Person {
 
 class TestPerson {
     public static void main(String[] args) {
-        Student s1 = new Student("nana", "KTX KHUA", "Data Science", 2025, 2000);
         Staff st1 = new Staff("lili", "=dỉ an", "IU", 1500);
 
-        System.out.println(s1.toString());
+        Student[] student = new Student[3];
+        student[0]= new Student("nana", "KTX KHUA", "Data Science", 2025, 2000);
+        student[1]= new Student("anna", "KTX KHUB", "Business", 2009, 200);
+        student[2]= new Student("John", "Dong Hoa", "Teacher", 2024, 400);
+
+
+
         System.out.println(st1.toString());
-        System.out.println("Student's program: "+ s1.getProgram() );
+        System.out.println("Student1's program: "+ student[1].getProgram() );
+        for (Student s :student){
+            System.out.println(s.toString());
+        }
     }
 }
-
 
 
 
