@@ -1,7 +1,7 @@
 package OOP;
 
 public class Shape {
-    String color="green";
+    String color="red";
     boolean filled = true;
 
     public Shape(){}
@@ -158,4 +158,5 @@ class TestShape {
         System.out.println("The perimeter of square: "+square.getPerimeter());
         System.out.printf("The area of circle: %.2f ",circle.getArea());
     }
+
 }
