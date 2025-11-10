@@ -28,33 +28,35 @@ public abstract class Shape2 {
 }
 
 class Circle extends Shape2{
-    protected double radious = 1.0;
+    protected double radius = 1.0;
 
     public Circle(){}
 
-    public Circle(double radious,String color, boolean filled){
+    public Circle(double radius, String color, boolean filled){
         super(color,filled);
-        this.radious= radious;
+        this.radius = radius;
 
     }
 
-    public double getRadious() {
-        return radious;
+    public double getRadius() {
+        return radius;
     }
 
-    public void setRadious(double radious) {
-        this.radious = radious;
+
+
+    public void setRadius(double radius) {
+        this.radius = radius;
     }
 
-    public double getPerimeter(){return 2 * Math.PI * radious; }
+    public double getPerimeter(){return 2 * Math.PI * radius; }
 
     public double getArea() {
-        return Math.PI * radious * radious;
+        return Math.PI * radius * radius;
     }
 
     @Override
     public String toString() {
-        return  "Circle["+super.toString()+", radius ="+getRadious()+"]";
+        return  "Circle["+super.toString()+", radius ="+ getRadius()+"]";
     }
 }
 
@@ -152,19 +154,60 @@ class Square extends Rectangle {
 
 class TestShape {
     public static void main(String[] args) {
-        Square square = new Square(2);
-        Circle circle = new Circle(2,"pink",false);
-        Rectangle rectangle = new Rectangle(3,4,"black",true);
+        Shape2 s1 = new Circle(5.5, "red", false); // Upcast Circle to Shape
+        System.out.println(s1); // which version?
+        System.out.println(s1.getArea()); // which version?
+        System.out.println(s1.getPerimeter()); // which version?
+        System.out.println(s1.getColor());
+        System.out.println(s1.isFilled());
+//        System.out.println(s1.getRadius());   error1
 
-        System.out.println(square.toString());
-        System.out.println(circle.toString());
-        System.out.println(rectangle.toString());
 
+        Circle c1 = (Circle)s1; // Downcast back to Circle
+        System.out.println(c1);
+        System.out.println(c1.getArea());
+        System.out.println(c1.getPerimeter());
+        System.out.println(c1.getColor());
+        System.out.println(c1.isFilled());
+        System.out.println(c1.getRadius());
 
-        square.setSide(2.5);
+//        Shape2 s2 = new Shape2(); error2
 
-        System.out.println("The perimeter of square: "+square.getPerimeter());
-        System.out.printf("The perimeter of circle: %.2f \n ",circle.getPerimeter());
-        System.out.printf("The area of circle: %.2f ",circle.getArea());
+        Shape2 s3 = new Rectangle(1.0, 2.0, "red", false); // Upcast
+        System.out.println(s3);
+        System.out.println(s3.getArea());
+        System.out.println(s3.getPerimeter());
+        System.out.println(s3.getColor());
+//        System.out.println(s3.getLength()); error3
+
+        Rectangle r1 = (Rectangle)s3; // downcast
+        System.out.println(r1);
+        System.out.println(r1.getArea());
+        System.out.println(r1.getColor());
+        System.out.println(r1.getLength());
+
+        Shape2 s4 = new Square(6.6); // Upcast
+        System.out.println(s4);
+        System.out.println(s4.getArea());
+        System.out.println(s4.getColor());
+//        System.out.println(s4.getSide()); error4
+
+// Take note that we downcast Shape s4 to Rectangle,
+// which is a superclass of Square, instead of Square
+        Rectangle r2 = (Rectangle)s4;
+        System.out.println(r2);
+        System.out.println(r2.getArea());
+        System.out.println(r2.getColor());
+//        System.out.println(r2.getSide()); error5
+        System.out.println(r2.getLength());
+
+// Downcast Rectangle r2 to Square
+        Square sq1 = (Square)r2;
+        System.out.println(sq1);
+        System.out.println(sq1.getArea());
+        System.out.println(sq1.getColor());
+        System.out.println(sq1.getSide());
+        System.out.println(sq1.getLength());
+
     }
 }
