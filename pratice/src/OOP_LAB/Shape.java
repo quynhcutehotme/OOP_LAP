@@ -17,9 +17,9 @@ public class Shape {
     public void setFilled(boolean filled){this.filled = filled;}
     public String toString(){
         if (isFilled()){
-            return  "A Shape with color of "+ getColor() +" and filled";
+            return  "Shape[color="+getColor()+",filled=true]";
         }
-        else {return  "A Shape with color of "+ getColor() +" and not filled";}
+        else {return "Shape[color="+getColor()+",filled=none]";}
     }
 
 }
@@ -51,7 +51,7 @@ class Circle extends Shape{
 
     @Override
     public String toString() {
-        return  "A circle with radius="+getRadious()+", which is a subclass of "+super.toString();
+        return  "Circle["+super.toString()+", radius ="+getRadious()+"]";
     }
 }
 
@@ -100,7 +100,7 @@ class Rectangle extends Shape {
 
     @Override
     public String toString() {
-        return  "A rectangle with width="+getWidth()+"and length="+getLength()+", which is a subclass of "+super.toString();
+        return  "Rectangle["+super.toString()+", width ="+getWidth()+",length="+getLength()+"]";
     }
 }
 
@@ -138,7 +138,7 @@ class Square extends Rectangle {
 
     @Override
     public String toString() {
-        return "A square with side=" +getSide()+", which is subclass of "+ super.toString() ;
+        return "Square["+super.toString() ;
     }
 }
 
@@ -160,3 +160,4 @@ class TestShape {
     }
 
 }
+
