@@ -5,20 +5,38 @@ import java.awt.*;
 
 public class Q9 extends JPanel {
 
-    public void paintComponent(Graphics g){
+    public Q9(){this.setBackground(Color.white);}
+
+    @Override
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.setColor(Color.decode("#FF6DAA"));
-        g.fillOval(getWidth()/2-30,getHeight()/2-30,100,100);
+        int centerX = getWidth() / 2;
+        int centerY = getHeight() / 2;
+        int maxRadius = Math.min(centerX, centerY) - 20;
 
-        g.setColor(Color.decode("#2B06FF"));
-        g.fillOval(getWidth()/2-30,getHeight()/2-30,130,130);
+        Color[] colors = {Color.decode("#FFD8E8"), Color.decode("#FEEAF4"), Color.decode("#FFD8E8"), Color.decode("#FEEAF4"), Color.decode("#FFD8E8")};
 
-        g.setColor(Color.decode("#FF6DAA"));
-        g.fillOval(getWidth()/2-30,getHeight()/2-30,100,100);
+        for (int i = 0; i < 5; i++) {
+            int radius = maxRadius - (i * (maxRadius / 5));
+            int diameter = radius * 2;
+            g.setColor(colors[i]);
+            g.fillOval(centerX - radius, centerY - radius, diameter, diameter);
+        }
 
-        g.setColor(Color.decode("#FF6DAA"));
-        g.fillOval(getWidth()/2-30,getHeight()/2-30,100,100);
+        g.setColor(Color.white);
+        g.setFont(new Font("SansSerif", Font.BOLD, 69));
+        g.drawString("❤", centerX-34, centerY + 30);
+
+        g.setColor(Color.decode("#FFD8E8"));
+        g.setFont(new Font("SansSerif", Font.BOLD, 50));
+        g.drawString("❤", centerX - 25, centerY + 23);
+
+        g.setColor(Color.decode("#E66A8A"));
+        g.setFont(new Font("SansSerif", Font.BOLD, 35));
+        g.drawString("❤", centerX - 17, centerY + 18);
+
+
     }
 
     public static void main(String[] args) {
@@ -31,3 +49,5 @@ public class Q9 extends JPanel {
         window.setVisible(true);
     }
 }
+
+
