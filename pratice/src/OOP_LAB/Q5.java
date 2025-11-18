@@ -12,7 +12,7 @@ public class Q5 extends JPanel {
 
     public Q5() {
 
-        timer = new Timer(200, new ActionListener() {
+        timer = new Timer(2000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 linesToDraw++;
@@ -72,4 +72,5 @@ public class Q5 extends JPanel {
         window.setSize(400, 400);
         window.setVisible(true);
     }
+
 }
