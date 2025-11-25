@@ -46,9 +46,8 @@ class testMyCuboid{
     public static void main(String[] args) {
         MyCuboid p1 = new MyCuboid();
         MyCuboid p2 = new MyCuboid(1,2,4,5,6,6);
-        System.out.println("Coordinate 1 of vertex 1: "+p1.getVertex1());
-        System.out.println("Coordinate 1 of vertex 2: "+p2.getVertex2());
+        System.out.println("1st vertex of vertex 1: "+p1.getVertex1());
+        System.out.println("2st vertex  of vertex 2: "+p2.getVertex2());
         System.out.println("Cuboid: "+p2.toString());
-
     }}
 

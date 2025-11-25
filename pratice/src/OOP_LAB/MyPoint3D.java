@@ -1,5 +1,7 @@
 package OOP;
 
+import java.util.Scanner;
+
 public class MyPoint3D {
     public int x;
     public int y;
@@ -47,8 +49,13 @@ public class MyPoint3D {
 class testMyPoint3D{
     public static void main(String[] args) {
         MyPoint3D p1 = new MyPoint3D();
-        MyPoint3D p2 = new MyPoint3D(1,2,4);
-        System.out.println("Point 1: "+p1.toString());
-        System.out.println("Point 2: "+p2.toString());
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Input coordinates of point (x,y,z): ");
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        int z = sc.nextInt();
+        MyPoint3D p2 = new MyPoint3D(x,y,z);
+        System.out.println("Default point : "+p1.toString());
+        System.out.println("Point : "+p2.toString());
     }
 }
